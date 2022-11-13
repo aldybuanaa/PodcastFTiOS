@@ -22,6 +22,7 @@
 		04B07A712921244B003F896F /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B07A702921244B003F896F /* FavoriteViewController.swift */; };
 		04B07A732921245E003F896F /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B07A722921245E003F896F /* DownloadViewController.swift */; };
 		04B07A7529212EC6003F896F /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B07A7429212EC5003F896F /* UIColorExtensions.swift */; };
+		04B07A7829213373003F896F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B07A7729213373003F896F /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		04B07A702921244B003F896F /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		04B07A722921245E003F896F /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		04B07A7429212EC5003F896F /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		04B07A7729213373003F896F /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		04B07A5D2921193A003F896F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				04B07A7729213373003F896F /* Service.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				04B07A6F292122AD003F896F /* ExploreViewController.swift in Sources */,
 				04B07A732921245E003F896F /* DownloadViewController.swift in Sources */,
 				04B07A4B2920E384003F896F /* SceneDelegate.swift in Sources */,
+				04B07A7829213373003F896F /* Service.swift in Sources */,
 				04B07A712921244B003F896F /* FavoriteViewController.swift in Sources */,
 				04B07A6D292121F9003F896F /* HomeViewController.swift in Sources */,
 				04B07A7529212EC6003F896F /* UIColorExtensions.swift in Sources */,
