@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04853165292399C500D37F59 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04853164292399C500D37F59 /* Player.storyboard */; };
+		04853167292399FA00D37F59 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04853166292399FA00D37F59 /* PlayerViewController.swift */; };
 		04B07A492920E384003F896F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B07A482920E384003F896F /* AppDelegate.swift */; };
 		04B07A4B2920E384003F896F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B07A4A2920E384003F896F /* SceneDelegate.swift */; };
 		04B07A4D2920E384003F896F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B07A4C2920E384003F896F /* MainViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04853164292399C500D37F59 /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
+		04853166292399FA00D37F59 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		04B07A452920E384003F896F /* PodcastFTiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodcastFTiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B07A482920E384003F896F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B07A4A2920E384003F896F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 		048531632923986100D37F59 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				04853164292399C500D37F59 /* Player.storyboard */,
+				04853166292399FA00D37F59 /* PlayerViewController.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -266,6 +272,7 @@
 				04B07A522920E387003F896F /* Assets.xcassets in Resources */,
 				04B07A68292120BC003F896F /* Favorite.storyboard in Resources */,
 				04B07A66292120A9003F896F /* Explore.storyboard in Resources */,
+				04853165292399C500D37F59 /* Player.storyboard in Resources */,
 				04B07A502920E384003F896F /* Main.storyboard in Resources */,
 				04B07A6429212098003F896F /* Home.storyboard in Resources */,
 			);
@@ -329,6 +336,7 @@
 				04B07A712921244B003F896F /* FavoriteViewController.swift in Sources */,
 				04B07A6D292121F9003F896F /* HomeViewController.swift in Sources */,
 				04B07A7529212EC6003F896F /* UIColorExtensions.swift in Sources */,
+				04853167292399FA00D37F59 /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
