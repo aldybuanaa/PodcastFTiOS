@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Download View Controller-->
+        <!--Downloads-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="DownloadViewController" customModule="PodcastFTiOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,21 +15,98 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOWNLOADS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAN-Xi-SOu">
-                                <rect key="frame" x="153.5" y="437.5" width="107" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vd2-Yd-W7a">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="downloadCellId" rowHeight="142" id="zC8-ie-5vs" customClass="DownloadViewCell" customModule="PodcastFTiOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="142"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zC8-ie-5vs" id="7Aj-Vc-zZV">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumb1" translatesAutoresizingMaskIntoConstraints="NO" id="gBp-EF-lje">
+                                                    <rect key="frame" x="20" y="12" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="9SI-Se-yV7"/>
+                                                        <constraint firstAttribute="height" constant="100" id="sJY-eh-WCw"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KKh-Rd-cTJ">
+                                                    <rect key="frame" x="140" y="12" width="254" height="46"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIj-zG-NGZ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="254" height="14.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <color key="textColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hF-iO-ebS">
+                                                            <rect key="frame" x="0.0" y="14.5" width="254" height="17"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBe-V2-s4d">
+                                                            <rect key="frame" x="0.0" y="31.5" width="254" height="14.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                            <color key="textColor" red="0.4431372549" green="0.45098039220000002" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phe-TJ-Hv3">
+                                                    <rect key="frame" x="20" y="12" width="100" height="100"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                    <color key="textColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.054901960780000002" green="0.043137254899999998" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="phe-TJ-Hv3" firstAttribute="top" secondItem="gBp-EF-lje" secondAttribute="top" id="0TE-Aq-N0r"/>
+                                                <constraint firstItem="gBp-EF-lje" firstAttribute="top" secondItem="7Aj-Vc-zZV" secondAttribute="top" constant="12" id="8e7-M1-Sh4"/>
+                                                <constraint firstAttribute="bottom" secondItem="gBp-EF-lje" secondAttribute="bottom" priority="250" constant="12" id="Aya-Wk-One"/>
+                                                <constraint firstItem="phe-TJ-Hv3" firstAttribute="trailing" secondItem="gBp-EF-lje" secondAttribute="trailing" id="EcA-to-EiS"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KKh-Rd-cTJ" secondAttribute="bottom" constant="12" id="PmO-Qn-67T"/>
+                                                <constraint firstItem="KKh-Rd-cTJ" firstAttribute="top" secondItem="gBp-EF-lje" secondAttribute="top" id="fAq-5t-sXJ"/>
+                                                <constraint firstItem="KKh-Rd-cTJ" firstAttribute="leading" secondItem="gBp-EF-lje" secondAttribute="trailing" constant="20" id="fBU-FF-t23"/>
+                                                <constraint firstItem="phe-TJ-Hv3" firstAttribute="leading" secondItem="gBp-EF-lje" secondAttribute="leading" id="kzW-ZV-OkP"/>
+                                                <constraint firstItem="gBp-EF-lje" firstAttribute="leading" secondItem="7Aj-Vc-zZV" secondAttribute="leading" constant="20" symbolic="YES" id="tQC-hl-piI"/>
+                                                <constraint firstAttribute="trailing" secondItem="KKh-Rd-cTJ" secondAttribute="trailing" constant="20" id="vxU-qj-ml6"/>
+                                                <constraint firstItem="phe-TJ-Hv3" firstAttribute="bottom" secondItem="gBp-EF-lje" secondAttribute="bottom" id="znq-MN-2kb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="SIj-zG-NGZ" id="R61-WO-qTi"/>
+                                            <outlet property="descriptionLabel" destination="yBe-V2-s4d" id="JZI-EY-Xnp"/>
+                                            <outlet property="progressLabel" destination="phe-TJ-Hv3" id="arl-K8-sDL"/>
+                                            <outlet property="thumbImageView" destination="gBp-EF-lje" id="kEm-Az-a5a"/>
+                                            <outlet property="titleLabel" destination="5hF-iO-ebS" id="5FX-M7-fLW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.054901960784313725" green="0.043137254901960784" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xAN-Xi-SOu" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="bYR-UI-7oW"/>
-                            <constraint firstItem="xAN-Xi-SOu" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="o2T-o5-mH9"/>
+                            <constraint firstItem="Vd2-Yd-W7a" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="54G-qZ-X7n"/>
+                            <constraint firstAttribute="bottom" secondItem="Vd2-Yd-W7a" secondAttribute="bottom" id="CE2-ur-daT"/>
+                            <constraint firstItem="Vd2-Yd-W7a" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="PHL-aM-mAr"/>
+                            <constraint firstItem="Vd2-Yd-W7a" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="SKL-9c-IA9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="nZJ-9B-Z0E"/>
+                    <navigationItem key="navigationItem" title="Downloads" id="nZJ-9B-Z0E"/>
+                    <connections>
+                        <outlet property="tableView" destination="Vd2-Yd-W7a" id="Ru2-MH-83w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,9 +119,15 @@
                     <tabBarItem key="tabBarItem" title="Downloads" image="Downloads" id="J9h-sg-Ufs"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rgc-zq-EVK">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Rgc-zq-EVK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -58,5 +141,6 @@
     </scenes>
     <resources>
         <image name="Downloads" width="19" height="21"/>
+        <image name="thumb1" width="80" height="80"/>
     </resources>
 </document>

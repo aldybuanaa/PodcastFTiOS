@@ -1,5 +1,5 @@
 //
-//  HomeItem1ListViewCell.swift
+//  HomeItem1ViewCell.swift
 //  PodcastFTiOS
 //
 //  Created by aldybuana on 16/11/22.

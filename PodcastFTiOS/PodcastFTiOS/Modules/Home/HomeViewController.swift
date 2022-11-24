@@ -6,22 +6,30 @@
 //
 
 import UIKit
+import Foundation
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     weak var recommendedListView: UICollectionView?
     
+    let viewModelHomeItem1 = HomeItem1ViewModel()
+    let viewModelHomeItem2 = HomeItem2ViewModel()
+    
+    var homeItem1Count: Int = 0
+    var homeItem2Count: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setup()
+        loadHomeItem1(q: "makna")
+        loadHomeItem2(q: "reality club")
     }
     
     func setup() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        self.collectionView.reloadData()
     }
 
 }
@@ -29,7 +37,6 @@ class HomeViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
     
-    // amount of section
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == self.collectionView {
             return 2
@@ -38,63 +45,66 @@ extension HomeViewController: UICollectionViewDataSource {
         }
     }
     
-    // amount of item in section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView {
             if section == 0 {
                 return 1
             } else {
-                return 10
+                return self.homeItem2Count
             }
         } else {
-            return 6
+            return self.homeItem1Count
             
         }
         
     }
     
-    
-    // to show the item at section
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView != self.collectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item1", for: indexPath) as! HomeItem1ViewCell
             
-//            let mood = moods[indexPath.row]
-            
-            cell.coverImage.image = UIImage(named: "cover1")
-            
-            
+            let index = indexPath.row
+            cell.coverImage.kf.setImage(with: URL(string: viewModelHomeItem1.homeItem1ImageUrl(at: index))) { (result) in
+                switch result {
+                case.success:
+                    cell.coverImage.contentMode = .scaleAspectFill
+                case .failure:
+                    cell.coverImage.contentMode = .center
+                    cell.coverImage.image = UIImage(systemName: "photo")
+                }
+            }
             
             return cell
             
         } else {
-            
-            // section 1 recommendedList
             if indexPath.section == 0 {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemList", for: indexPath) as! HomeItemListViewCell
                 
-                cell.backgroundColor = .clear
-                
                 self.recommendedListView = cell.collectionView
-                
-                // collectionView to provide data
+
                 cell.collectionView.dataSource = self
                 cell.collectionView.delegate = self
                 
                 return cell
                 
-                // section 2 HomeItemViewCell
             } else {
                 let cells = collectionView.dequeueReusableCell(withReuseIdentifier: "item2", for: indexPath) as! HomeItem2ViewCell
                 
                 let item = indexPath.item
+                let dateLabels = viewModelHomeItem2.homeItem2ReleaseDate(at: item)
                 
-                cells.titleName.text = item == 0 ? "Is it the Answer" : "Never Get Better"
-                cells.releaseDate.text = item == 0 ? "Release date:  March, 23 - 2017" : "Release date: March, 23 - 2017"
-                cells.thumbImage.image = item == 0 ? UIImage(named: "thumb1") : UIImage(named: "thumb1")
-                
-//                cells.delegate = self
+                cells.titleName.text = viewModelHomeItem2.homeItem2TrackName(at: item)
+                cells.releaseDate.text = "Release date: \(dateLabels)"
+                cells.thumbImage.kf.setImage(with: URL(string: viewModelHomeItem2.homeItem2ImageUrl(at: item))) { (result) in
+                    switch result {
+                    case .success:
+                        cells.thumbImage.contentMode = .scaleAspectFill
+                    case .failure:
+                        cells.thumbImage.contentMode = .center
+                        cells.thumbImage.image = UIImage(systemName: "photo")
+                    }
+                }
                 
                 return cells
                 
@@ -104,7 +114,6 @@ extension HomeViewController: UICollectionViewDataSource {
         
     }
     
-    // func for header
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
@@ -129,31 +138,35 @@ extension HomeViewController: UICollectionViewDataSource {
         
         return view
     }
-    
-    
-    // to hide second header
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize{
-//        if collectionView == self.recommendedListView {
-//            return .zero
-//        } else {
-//            if section == 0 {
-//                return CGSize(width: 50, height: 100)
-//            } else {
-//                return .zero
-//            }
-//        }
-//
-//    }
 }
+
+
+// MARK: - UICollectionViewDelegate
+extension HomeViewController: UICollectionViewDelegate {
+    func loadHomeItem1(q: String) {
+        viewModelHomeItem1.fetchPodcasts(q: q) { [weak self] (_) in
+            guard let `self` = self else { return }
+            self.homeItem1Count = self.viewModelHomeItem1.numberOfHomeItem1
+        }
+    }
+    
+    func loadHomeItem2(q: String) {
+        viewModelHomeItem2.fetchPodcasts(q: q) { [weak self] (_) in
+            guard let `self` = self else { return }
+            self.homeItem2Count = self.viewModelHomeItem2.numberOfHomeItem2
+            self.setup()
+        }
+    }
+}
+
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
-    // size inset for each section
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView == self.collectionView {
         if section == 0 {
-            return UIEdgeInsets(top: 0, left: -10, bottom: 0, right: -10)
+            return UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
         } else {
             return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         }
@@ -162,38 +175,34 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         }
     }
-    // space size for each item in section
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
 
-    // minimum space for each item
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        if section == 0 {
+            return 10
+        }
+        else {
+            return 0
+        }
     }
 
-    // size of item
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         if collectionView == self.recommendedListView {
-            return CGSize(width: 65, height: 99)
+            return CGSize(width: 300, height: 200)
         } else {
-            
-        // section 2
-        if indexPath.section != 0 {
-            let screenwidth = UIScreen.main.bounds.width
-            return CGSize(width: screenwidth, height: 72)
-        } else {
-            
-            // section 1
-            let leftInset: CGFloat = 0.0
-            let rightInset: CGFloat = 0.0
-            
-            let screenwidth = UIScreen.main.bounds.width
-            let width = screenwidth - (leftInset + rightInset)
-            let height = 200.0
-            return CGSize(width: width, height: height)
-        }
+            if indexPath.section != 0 {
+                let screenwidth = UIScreen.main.bounds.width
+                let width = screenwidth
+                let height = 90.0
+                return CGSize(width: width, height: height)
+            } else {
+                let screenWidth = UIScreen.main.bounds.width
+                return CGSize(width: screenWidth, height: 200)
+            }
         }
         
     }

@@ -4,10 +4,11 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorite View Controller-->
+        <!--Favorites-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="FavoriteViewController" customModule="PodcastFTiOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,21 +16,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAVORITES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8j-Tk-9v8">
-                                <rect key="frame" x="163" y="437.5" width="88" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UO6-a5-GeT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vkc-Et-GVm">
+                                    <size key="itemSize" width="136" height="188"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoriteCellId" id="24d-QE-GDh" customClass="FavoriteViewCell" customModule="PodcastFTiOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="136" height="188"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pUo-eA-Tal">
+                                            <rect key="frame" x="0.0" y="0.0" width="136" height="188"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumb1" translatesAutoresizingMaskIntoConstraints="NO" id="PsZ-fD-tvc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="J1v-kz-alN"/>
+                                                        <constraint firstAttribute="width" secondItem="PsZ-fD-tvc" secondAttribute="height" multiplier="1:1" id="acm-zU-BKM"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fJq-HU-Keq">
+                                                    <rect key="frame" x="0.0" y="148" width="136" height="40"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="trackName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEz-8l-yJo">
+                                                            <rect key="frame" x="0.0" y="0.0" width="136" height="25.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artistName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUr-HM-muT">
+                                                            <rect key="frame" x="0.0" y="25.5" width="136" height="14.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="14.5" id="R1R-oS-TfQ"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <color key="textColor" red="0.4431372549" green="0.45098039220000002" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="fJq-HU-Keq" secondAttribute="trailing" id="DtM-Xs-yP5"/>
+                                                <constraint firstItem="PsZ-fD-tvc" firstAttribute="top" secondItem="pUo-eA-Tal" secondAttribute="top" id="JzD-DR-kxe"/>
+                                                <constraint firstAttribute="trailing" secondItem="PsZ-fD-tvc" secondAttribute="trailing" id="Tfc-rc-REy"/>
+                                                <constraint firstItem="fJq-HU-Keq" firstAttribute="leading" secondItem="pUo-eA-Tal" secondAttribute="leading" id="Xue-LJ-KkS"/>
+                                                <constraint firstAttribute="bottom" secondItem="fJq-HU-Keq" secondAttribute="bottom" id="gWp-LU-VjU"/>
+                                                <constraint firstItem="fJq-HU-Keq" firstAttribute="top" secondItem="PsZ-fD-tvc" secondAttribute="bottom" constant="12" id="t41-z1-xel"/>
+                                                <constraint firstItem="PsZ-fD-tvc" firstAttribute="leading" secondItem="pUo-eA-Tal" secondAttribute="leading" id="u6T-2G-CfG"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="136" height="188"/>
+                                        <connections>
+                                            <outlet property="artistLabel" destination="oUr-HM-muT" id="y4P-rg-lUC"/>
+                                            <outlet property="nameLabel" destination="gEz-8l-yJo" id="FSE-4C-h3R"/>
+                                            <outlet property="thumbImageView" destination="PsZ-fD-tvc" id="nzd-GT-pWk"/>
+                                            <outlet property="widthConstraint" destination="J1v-kz-alN" id="YDf-3v-xgb"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.054901960784313725" green="0.043137254901960784" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Z8j-Tk-9v8" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="dE1-6v-k3R"/>
-                            <constraint firstItem="Z8j-Tk-9v8" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="yEX-ej-S8s"/>
+                            <constraint firstItem="UO6-a5-GeT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="7nZ-8L-tnk"/>
+                            <constraint firstAttribute="bottom" secondItem="UO6-a5-GeT" secondAttribute="bottom" id="Afe-ah-1HE"/>
+                            <constraint firstItem="UO6-a5-GeT" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="KXt-D6-7pM"/>
+                            <constraint firstItem="UO6-a5-GeT" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="yuq-UQ-VaK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UZh-I6-vy1"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="UZh-I6-vy1"/>
+                    <connections>
+                        <outlet property="collectionView" destination="UO6-a5-GeT" id="fHU-LQ-9h5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,9 +112,16 @@
                     <tabBarItem key="tabBarItem" title="Favorites" image="Favorites" id="cDE-Aq-QyJ"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="05n-JJ-kfQ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="05n-JJ-kfQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.054901960780000002" green="0.043137254899999998" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -58,5 +135,6 @@
     </scenes>
     <resources>
         <image name="Favorites" width="19" height="20.5"/>
+        <image name="thumb1" width="80" height="80"/>
     </resources>
 </document>

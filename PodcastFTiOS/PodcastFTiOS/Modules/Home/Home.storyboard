@@ -27,32 +27,37 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="itemList" id="Iwm-2p-RtX" customClass="HomeItemListViewCell" customModule="PodcastFTiOS" customModuleProvider="target">
-                                        <rect key="frame" x="3.6666666666666665" y="70" width="383" height="192"/>
+                                        <rect key="frame" x="2.6666666666666665" y="70" width="385" height="192"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ffj-Tr-2A9">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="192"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="385" height="192"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4yb-KF-TM8">
-                                                    <rect key="frame" x="8" y="8" width="367" height="184"/>
+                                                    <rect key="frame" x="8" y="8" width="377" height="184"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NKR-3x-Nje">
-                                                        <size key="itemSize" width="367" height="174"/>
+                                                        <size key="itemSize" width="247" height="174"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="item1" id="8GD-oz-Ywj" customClass="HomeItem1ViewCell" customModule="PodcastFTiOS" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="5" width="367" height="174"/>
+                                                            <rect key="frame" x="0.0" y="5" width="247" height="174"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mLf-32-WkI">
-                                                                <rect key="frame" x="0.0" y="0.0" width="367" height="174"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="247" height="174"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7DD-jI-MAP">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="367" height="174"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cover1" translatesAutoresizingMaskIntoConstraints="NO" id="7DD-jI-MAP">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="247" height="174"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="247" id="dc8-tu-IEb"/>
+                                                                            <constraint firstAttribute="width" secondItem="7DD-jI-MAP" secondAttribute="height" multiplier="247:174" id="rzZ-OR-EfV"/>
+                                                                            <constraint firstAttribute="height" constant="174" id="sWI-ly-5aG"/>
+                                                                        </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                                 <integer key="value" value="10"/>
@@ -61,13 +66,13 @@
                                                                     </imageView>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstItem="7DD-jI-MAP" firstAttribute="top" secondItem="mLf-32-WkI" secondAttribute="top" id="IHN-i5-EqZ"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="7DD-jI-MAP" secondAttribute="bottom" id="Wdr-Hd-lWL"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="7DD-jI-MAP" secondAttribute="trailing" id="iYe-qa-tLf"/>
-                                                                    <constraint firstItem="7DD-jI-MAP" firstAttribute="leading" secondItem="mLf-32-WkI" secondAttribute="leading" id="zM9-QU-Rep"/>
+                                                                    <constraint firstItem="7DD-jI-MAP" firstAttribute="top" secondItem="mLf-32-WkI" secondAttribute="top" id="NmL-oy-HxT"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="7DD-jI-MAP" secondAttribute="trailing" id="XFg-OL-0pA"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="7DD-jI-MAP" secondAttribute="bottom" id="fUm-BN-ob1"/>
+                                                                    <constraint firstItem="7DD-jI-MAP" firstAttribute="leading" secondItem="mLf-32-WkI" secondAttribute="leading" id="s6P-rc-nRo"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
-                                                            <size key="customSize" width="367" height="174"/>
+                                                            <size key="customSize" width="247" height="174"/>
                                                             <connections>
                                                                 <outlet property="coverImage" destination="7DD-jI-MAP" id="nno-Hd-b6q"/>
                                                             </connections>
@@ -76,7 +81,7 @@
                                                 </collectionView>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="383" height="192"/>
+                                        <size key="customSize" width="385" height="192"/>
                                         <connections>
                                             <outlet property="collectionView" destination="4yb-KF-TM8" id="41e-ZP-DqW"/>
                                         </connections>
@@ -211,5 +216,6 @@
     </scenes>
     <resources>
         <image name="Home" width="23" height="25.666666030883789"/>
+        <image name="cover1" width="273" height="187"/>
     </resources>
 </document>
