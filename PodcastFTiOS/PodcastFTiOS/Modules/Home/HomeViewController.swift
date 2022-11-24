@@ -165,11 +165,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView == self.collectionView {
-        if section == 0 {
-            return UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
-        } else {
-            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        }
+            if section == 0 {
+                return UIEdgeInsets(top: 0, left: 0, bottom: -10, right: -20)
+            } else {
+                return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+            }
 
         } else {
             return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -177,15 +177,15 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+            return 10
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        if section == 0 {
-            return 10
-        }
-        else {
-            return 0
+            if section == 0 {
+                return 10
+            }
+            else {
+                return 10
         }
     }
 

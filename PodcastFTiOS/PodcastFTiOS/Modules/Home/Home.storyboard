@@ -168,7 +168,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" red="0.056448258459999998" green="0.044768102470000001" blue="0.19297799469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.054901960784313725" green="0.043137254901960784" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3TY-Vp-tzZ" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="B4W-Vt-xsb"/>
                             <constraint firstItem="3TY-Vp-tzZ" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="EgY-Na-YPj"/>
@@ -195,7 +195,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="0ar-GT-leA">
                         <rect key="frame" x="0.0" y="44" width="390" height="105.66666666666666"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.056448258459999998" green="0.044768102470000001" blue="0.19297799469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.054901960784313725" green="0.043137254901960784" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>

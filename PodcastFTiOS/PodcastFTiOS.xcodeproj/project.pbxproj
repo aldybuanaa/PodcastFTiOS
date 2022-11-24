@@ -115,6 +115,7 @@
 		04B07A722921245E003F896F /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		04B07A7429212EC5003F896F /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		04B07A7729213373003F896F /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		04C957D8292FA00F00390B5D /* PodcastFTiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PodcastFTiOS.entitlements; sourceTree = "<group>"; };
 		04EBEFBC2924CBF500CEA85F /* HomeItem1ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem1ViewCell.swift; sourceTree = "<group>"; };
 		04EBEFBE2924CC1400CEA85F /* HomeItem2ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem2ViewCell.swift; sourceTree = "<group>"; };
 		163E3FD4F2A0082138F075E7 /* Pods_PodcastFTiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodcastFTiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +209,7 @@
 		04B07A472920E384003F896F /* PodcastFTiOS */ = {
 			isa = PBXGroup;
 			children = (
+				04C957D8292FA00F00390B5D /* PodcastFTiOS.entitlements */,
 				04B07A7629212ED3003F896F /* Extensions */,
 				0446AC28292E11B6002A64B0 /* CoreDataModels */,
 				04B07A5C29211918003F896F /* API */,

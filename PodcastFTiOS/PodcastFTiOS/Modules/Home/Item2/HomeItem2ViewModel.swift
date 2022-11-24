@@ -44,7 +44,7 @@ class HomeItem2ViewModel {
         let date1 = dateFormatterEx.formatIso(input: dateFromRes)
         let formatting = dateFormatterEx.dateFormatter(format: "yyyy-MM-dd", input: date1)
         
-        let result = formatting.stringDateFormatter(format: "MMMM, d yyyy")
+        let result = formatting.stringDateFormatter(format: "MMMM, d - yyyy")
             
         return "\(result)"
     }
